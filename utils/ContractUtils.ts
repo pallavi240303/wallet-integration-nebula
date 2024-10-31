@@ -1,6 +1,6 @@
 // contractUtils.ts
 import { CONTRACT_ABI, CONTRACT_ADDRESS} from '@/app/constants';
-import { useReadContract } from 'wagmi';
+import { useReadContract, useWriteContract } from 'wagmi';
 
 export const useFetchBalance = (address: `0x${string}`) => {
   return useReadContract({
@@ -18,3 +18,4 @@ export const useFetch = (functionName: string) => {
     functionName,
   });
 };
+
