@@ -19,3 +19,14 @@ export const useFetch = (functionName: string) => {
   });
 };
 
+export const useFetchAllowance = (owner , spender) => {
+  console.log(owner);
+  console.log(spender);
+  return useReadContract({
+    abi: CONTRACT_ABI,
+    address: CONTRACT_ADDRESS,
+    functionName: "allowance",
+    args: [owner , spender]
+  })
+
+}

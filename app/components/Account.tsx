@@ -1,8 +1,16 @@
 "use client"
 import { useAccount, useDisconnect } from 'wagmi'
 import { formatEther, Hex } from 'viem'
-import { useFetchBalance, useFetch } from '@/utils/ContractUtils'
-import TransferButton from './Minting'
+import { useFetchBalance, useFetch, useFetchAllowance } from '@/utils/ContractUtils'
+import TransferButton from './TransferToken'
+import Approve from './Approve'
+import { useState } from 'react'
+import { Mint } from './Minting'
+import TransferFromButton from './TransferTokenFromSpender'
+import Burn from './Burn'
+
+
+
 
 
 export function Account() {
@@ -14,7 +22,14 @@ export function Account() {
   const { data: marketCap } = useFetch("cap");
   const { data: symbol } = useFetch("symbol");
 
+  const [owner, setOwner] = useState(`0x4cD3FB4a504cc978f316a81Dc5165D2C5b30592d`);
+  const [spender, setSpender] = useState("0x23DF636d0D84BcF849618C35a3fF437Ef2e54f54");
+  const { data: allowance } = useFetchAllowance(owner, spender);
+  
+  console.log(allowance)
+
   const formattedBalance = balance ? parseFloat(formatEther(balance as bigint)).toFixed(2) : '0.00';
+  const formattedAllowance = allowance ? parseFloat(formatEther(allowance as bigint)).toFixed(2) : '0.00';
   const formattedTotalSupply = totalSupply ? parseFloat(formatEther(totalSupply as bigint)).toFixed(2) : 'Loading...';
   const formattedMarketCap = marketCap ? parseFloat(formatEther(marketCap as bigint)).toFixed(2) : 'Loading...';
 
@@ -29,7 +44,7 @@ export function Account() {
   }
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col  gap-4 w-2/3'>
       <div className="flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg h-64 justify-between p-6 space-y-4">
         <div className="flex flex-col items-center space-y-2 ">
           {address && (
@@ -56,7 +71,16 @@ export function Account() {
           Disconnect
         </button>
       </div>
+        <div className="mt-2 text-lg bg-purple-950 rounded-full mb-2 px-3 py-2 text-white text-center">
+            Allowance of spender: <span className="text-purple-300">{`${formattedAllowance}`}</span>
+          </div>
+      <div className='flex gap-1 flex-wrap'>
       <TransferButton/>
+          <Mint />
+        <Approve/>
+        <TransferFromButton/>
+        <Burn address ={address}/>
+      </div>
     </div>
   )
 }
