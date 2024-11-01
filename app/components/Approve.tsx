@@ -33,7 +33,7 @@ export default function ApproveButton() {
     }
 
     return (
-        <form onSubmit={handleApprove} className="flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
+        <form onSubmit={handleApprove} className="w-full flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
             <h2 className="text-xl font-semibold text-purple-400 text-center">Approve Token Transfer</h2>
             
             <div className="flex flex-col space-y-4">

@@ -1,6 +1,5 @@
 import { useWriteContract } from "wagmi";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
-import { config } from "@/config/wagmi";
 
 export default function TransferFromButton() {
   const { writeContract, isPending, error } = useWriteContract();
@@ -24,7 +23,7 @@ export default function TransferFromButton() {
   }
 
   return (
-    <form onSubmit={handleTransferFrom} className="flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
+    <form onSubmit={handleTransferFrom} className="w-full flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
     <h2 className="text-xl font-semibold text-purple-400 text-center">Transfer Tokens Through Spender</h2>
 
     <div className="flex flex-col space-y-4">

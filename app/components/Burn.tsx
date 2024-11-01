@@ -1,7 +1,7 @@
 import { BaseError, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from "../constants";
 
-export default function Burn({address}) {
+export default function Burn() {
     const {data:hash , isPending , error , writeContract }  = useWriteContract()
     async function submit(e : React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -19,7 +19,7 @@ export default function Burn({address}) {
         hash
     })
     return(
-        <form onSubmit={submit} className="flex flex-col w-3/5  bg-gradient-to-r h-min from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
+        <form onSubmit={submit} className="w-full flex flex-col  bg-gradient-to-r h-min from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
             <h2 className="text-xl font-semibold text-purple-400 text-center">Burn NBL Tokens</h2>
             <div className="flex flex-col space-y-4">
             <div className="flex flex-col">
@@ -40,7 +40,6 @@ export default function Burn({address}) {
                 >
                     {isPending ? 'Confirming...' : 'Burn'}
                 </button>
-                
                 {hash && (
                     <div className="text-sm text-purple-300 mt-2 text-center">
                         Transaction Hash: <span className="font-mono">{hash}</span>

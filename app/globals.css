@@ -4,4 +4,6 @@
 
 body {
     background-image: url('../public/background-wallpaper.webp');
+    background-size: cover;
 }
+

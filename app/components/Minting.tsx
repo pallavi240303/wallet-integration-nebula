@@ -51,7 +51,7 @@ export function Mint() {
     };
 
     return (
-        <div className="flex  flex-col bg-gradient-to-r h-min from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
+        <div className="flex w-full  flex-col bg-gradient-to-r h-min from-gray-800 via-gray-900 to-black text-white rounded-xl shadow-lg p-6 space-y-6">
             <h2 className="text-xl font-semibold text-purple-400 text-center">Mint NBL Tokens</h2>
             
             {!completed ? (
