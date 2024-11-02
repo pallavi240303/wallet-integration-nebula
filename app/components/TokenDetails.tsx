@@ -9,7 +9,7 @@ export default function TokenDetails() {
     const { data: decimals } = useFetch("decimals");
 
     return (
-        <div className="flex flex-col items-center p-6 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl shadow-lg space-y-6 w-full max-w-lg mx-auto">
+        <div className="flex flex-col items-center p-6 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl shadow-lg space-y-6 w-full scale-[0.9] md:scale-[1] md:w-1/2 max-w-lg mx-auto">
             <h2 className="text-2xl font-semibold text-purple-400">Token Details</h2>
             <div className="grid grid-cols-1 gap-6 w-full">
                 <div className="flex items-center justify-between bg-gray-800 rounded-lg p-4 shadow">
