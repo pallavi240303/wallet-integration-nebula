@@ -70,7 +70,7 @@ export function Account() {
       </a>
 
       <div className="md:p-4 flex flex-col w-4/5 mt-3" id="contractFuntions">
-        <div className="flex space-x-4 mb-4 ">
+        <div className="flex space-x-4 mb-4  ">
           <button
             className={`flex-1 py-2 rounded-lg ${
               activeTab === "read"
