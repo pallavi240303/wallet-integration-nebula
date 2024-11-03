@@ -1,4 +1,4 @@
-// contractUtils.ts
+
 import { CONTRACT_ABI, CONTRACT_ADDRESS} from '@/app/constants';
 import { useReadContract, useWriteContract } from 'wagmi';
 

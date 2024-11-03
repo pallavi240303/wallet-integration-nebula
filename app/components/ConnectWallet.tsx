@@ -7,9 +7,9 @@ function ConnectWallet() {
   const { isConnected } = useAccount();
 
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div className="flex flex-col items-center  space-y-4">
       {isConnected ? (
-        <Account />
+        <><Account /></>
       ) : (
         <WalletOptions />
       )}
