@@ -14,7 +14,7 @@ export default function TransferButton() {
             address: CONTRACT_ADDRESS,
             abi: CONTRACT_ABI,
             functionName: 'transfer',
-            args: [toAddress, BigInt(amount  * (10 ** 18))]
+            args: [toAddress,  BigInt(Number(amount)  * (10 ** 18))]
         })
     }
 

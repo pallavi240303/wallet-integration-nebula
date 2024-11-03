@@ -1,4 +1,4 @@
-import { useWriteContract } from "wagmi";
+import { Config, useWriteContract } from "wagmi";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
 import { waitForTransactionReceipt } from "viem/actions";
 import { config } from "@/config/wagmi";
@@ -30,7 +30,7 @@ export function Mint() {
                 args: [address, BigInt(Number(value) * (10 ** 18))]
             });
             
-            const receipt = await waitForTransactionReceipt(config, {
+            const receipt = await waitForTransactionReceipt(config as any, {
                 hash: data,
                 confirmations: 1
             });

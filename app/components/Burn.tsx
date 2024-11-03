@@ -12,7 +12,7 @@ export default function Burn() {
             address: CONTRACT_ADDRESS,
             abi: CONTRACT_ABI,
             functionName: 'burn',
-            args: [ BigInt(amount  * (10 ** 18))]
+            args: [ BigInt(Number(amount)  * (10 ** 18))]
         })
     }
     const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({

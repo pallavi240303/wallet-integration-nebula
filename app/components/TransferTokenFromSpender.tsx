@@ -7,8 +7,8 @@ export default function TransferFromButton() {
   async function handleTransferFrom(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const from = formData.get("from") as string;       // The owner who approved the tokens
-    const to = formData.get("to") as string;           // The recipient
+    const from = formData.get("from") as string;       
+    const to = formData.get("to") as string;          
     const amount = formData.get('amount')
     console.log(amount)
 
@@ -16,10 +16,9 @@ export default function TransferFromButton() {
       address: CONTRACT_ADDRESS,
       abi: CONTRACT_ABI,
       functionName: "transferFrom",
-      args: [from, to, BigInt(amount  * (10 ** 18))],
+      args: [from, to,  BigInt(Number(amount)  * (10 ** 18))],
     });
 
-    console.log(BigInt(amount  * (10 ** 18)))
   }
 
   return (
